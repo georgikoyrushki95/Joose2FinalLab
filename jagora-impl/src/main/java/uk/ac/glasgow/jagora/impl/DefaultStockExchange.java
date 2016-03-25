@@ -14,14 +14,14 @@ import uk.ac.glasgow.jagora.SellOrder;
 import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
+import uk.ac.glasgow.jagora.Tradable;
 import uk.ac.glasgow.jagora.Trade;
 import uk.ac.glasgow.jagora.World;
 
 
 //import the Observable abstract class that represents the Publisher in the Observer pattern
 import uk.ac.glasgow.jagora.Trader;
-
-public class DefaultStockExchange implements StockExchange {
+public class DefaultStockExchange implements StockExchange{
 	
 	private final Map<Stock,Market> markets;
 	private World world;

@@ -1,0 +1,5 @@
+package uk.ac.glasgow.jagora.test.impl;
+
+public class ConcreteDecoratorTest {
+
+}

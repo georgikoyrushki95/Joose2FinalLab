@@ -1,0 +1,17 @@
+package uk.ac.glasgow.jagora.test.impl;
+
+import org.junit.Before;
+
+import uk.ac.glasgow.jagora.test.DecoratorDesignPatternTest;
+import uk.ac.glasgow.jagora.test.TraderTest;
+import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
+
+public class ConcreteDecoratorTest extends DecoratorDesignPatternTest{
+	
+	@Before
+	public void setUp() throws Exception {
+		theStockExchange=null;
+		trader = new StubObservingTrader(theStockExchange, "gorgi boy");
+	}
+	
+}

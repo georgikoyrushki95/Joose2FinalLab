@@ -10,35 +10,13 @@ import java.util.List;
  * @author tws
  *
  */
-public interface StockExchange {
+public interface StockExchange extends Tradable{
 
 	/**
 	 * Performs clearing on all stock markets hosted by this exchange. Clearing
 	 * will proceed until no further trades are possible.
 	 */
 	public void doClearing ();
-
-	/**
-	 * Places a buy order on the stock exchange. If this is the first order for
-	 * a stock then placing the order creates the market for that stock on the
-	 * exchange.
-	 * 
-	 * @param buyOrder
-	 */
-	public void placeBuyOrder(BuyOrder buyOrder);
-	
-	/**
-	 * Places a sell order on the stock exchange. If this is the first order for
-	 * a stock then placing the order creates the market for that stock on the
-	 * exchange.
-	 * 
-	 * @param buyOrder
-	 */
-	public void placeSellOrder(SellOrder sellOrder);
-	
-	public void cancelBuyOrder(BuyOrder buyOrder);
-	
-	public void cancelSellOrder(SellOrder sellOrder);
 	
 	/**
 	 * 
@@ -48,27 +26,6 @@ public interface StockExchange {
 	 *         exchange.
 	 */
 	public List<TickEvent<Trade>> getTradeHistory(Stock stock);
-	
-	/**
-	 * @param stock
-	 * @return the lowest priced offer for the specified stock on this exchange,
-	 *         or null if no offer exists or the exchange does not trade the
-	 *         specified stock.
-	 */
-	public Double getBestOffer(Stock stock);
-	
-	/**
-	 * 
-	 * @param stock
-	 * @return the highest priced bid for the specified stock on this exchange,
-	 *         or null if no bid exists or the exchange does not trade the
-	 *         specified stock.
-	 */
-	public Double getBestBid(Stock stock);
-	
-	//methods needed to implement the Observer design pattern
-	public void registerObserver(Trader o);
-	public void removeObserver(Trader o);
-	public void notifyObservers();
+
 
 }

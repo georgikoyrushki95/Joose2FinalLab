@@ -1,0 +1,25 @@
+package uk.ac.glasgow.jagora.test.impl;
+
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+import static uk.ac.glasgow.jagora.test.stub.StubTrader.buyer;
+
+import org.junit.Before;
+
+import uk.ac.glasgow.jagora.impl.DefaultStockExchange;
+import uk.ac.glasgow.jagora.impl.DefaultWorld;
+import uk.ac.glasgow.jagora.impl.LimitBuyOrder;
+import uk.ac.glasgow.jagora.test.DecoratorDesignPatternTest;
+import uk.ac.glasgow.jagora.test.TraderTest;
+import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
+
+public class ConcreteDecoratorTest extends DecoratorDesignPatternTest{
+	
+	@Before
+	public void setUp() throws Exception {
+		theStockExchange=new DefaultStockExchange(new DefaultWorld());
+		trader = new StubObservingTrader(theStockExchange, "gorgi boy");
+		buyOrder1 = new LimitBuyOrder(buyer, lemons, 1, 2.5);
+		buyOrder2 = new LimitBuyOrder(buyer, lemons, 1, 1.0);
+	}
+	
+}

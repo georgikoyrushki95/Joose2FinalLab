@@ -1,0 +1,31 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.BuyOrder;
+import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
+
+
+@Ignore
+public class DecoratorDesignPatternTest {
+	
+	protected StubObservingTrader trader;
+	protected StockExchange theStockExchange;
+	protected SellOrder sellOrder1;
+	protected SellOrder sellOrder2;
+	protected BuyOrder buyOrder1;
+	protected BuyOrder buyOrder2;
+	
+	@Test
+	public void testPlaceAndBuySellOrder(){
+		trader.subscriber.placeBuyOrder(buyOrder1);
+		trader.subscriber.placeBuyOrder(buyOrder2);
+		trader.subscriber.placeSellOrder(sellOrder1);
+		trader.subscriber.placeBuySellOrder(sellOrder2);
+	}
+	
+}

@@ -1,0 +1,7 @@
+package uk.ac.glasgow.jagora.test.impl;
+
+import uk.ac.glasgow.jagora.test.DecoratorDesignPatternTest;
+
+public class ConcreteDecoratorTest extends DecoratorDesignPatternTest{
+
+}

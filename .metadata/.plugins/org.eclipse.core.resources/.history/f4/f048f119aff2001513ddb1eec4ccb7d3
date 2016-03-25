@@ -1,0 +1,15 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.Trader;
+
+
+@Ignore
+public class DecoratorDesignPatternTest {
+	
+	protected Trader trader;
+	protected StockExchange theStockExchange;
+	
+}

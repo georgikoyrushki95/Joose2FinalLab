@@ -7,6 +7,7 @@ import java.util.Map;
 import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
+import uk.ac.glasgow.jagora.Tradable;
 import uk.ac.glasgow.jagora.Trade;
 
 /**
@@ -29,7 +30,7 @@ public class DefaultTrader extends AbstractTrader {
 	}
 
 	@Override
-	public void speak(StockExchange stockExchange) {
+	public void speak(Tradable stockExchange) {
 		//Does nothing.
 	}
 	

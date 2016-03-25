@@ -6,13 +6,14 @@ import java.util.Set;
 import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
+import uk.ac.glasgow.jagora.Tradable;
 import uk.ac.glasgow.jagora.Trade;
 import uk.ac.glasgow.jagora.TradeException;
 import  uk.ac.glasgow.jagora.Trader;
 
 public class StubObservingTrader implements Trader {
-		
-	private StockExchange subscriber;
+	/* would like to have public access to the subscriber for testing purposes */
+	public Tradable subscriber;
 	/* Would like to have public acces to the tradeHistory for testing purposes.
 	 * Regardless, the list should be modifiable, so it would make no difference */
 	public List<TickEvent<Trade>> tradeHistory = null;
@@ -56,7 +57,7 @@ public class StubObservingTrader implements Trader {
 	}
 
 	@Override
-	public void speak(StockExchange stockExchange) {
+	public void speak(Tradable stockExchange) {
 		// TODO Auto-generated method stub
 		
 	}

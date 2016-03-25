@@ -6,11 +6,19 @@ import java.util.Map;
 import java.util.Set;
 
 import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.Tradable;
 import uk.ac.glasgow.jagora.TradeException;
 import uk.ac.glasgow.jagora.Trader;
 
 public abstract class AbstractTrader implements Trader {
-
+	
+	/* Compose (decorate) the Abstract Trader with a Tradable interface.
+	 * A given trader will instantiate this particular Tradable if and only if
+	 * he needs it (the RandomTrader for example, or a trader wanting access to
+	 * the TradeHistory. That particular trader will only be able to access to methods
+	 * that will not violate the invariants of the Stock Exchange */
+	private Tradable subscriber;
+	
 	private final String name;
 	private Double cash;
 	private final Map<Stock,Integer> inventory;

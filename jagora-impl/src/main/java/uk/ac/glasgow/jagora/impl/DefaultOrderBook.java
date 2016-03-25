@@ -17,17 +17,21 @@ public class DefaultOrderBook<O extends Order & Comparable<O>> implements OrderB
 	private final World world; 
 	
 	public DefaultOrderBook(World world) {
+//		System.out.println("How many times are you created, stupid bitch");
 		this.backing = new PriorityQueue<TickEvent<O>>(new OrderBookComparator());
 		this.world = world;
 	}
 	
 	@Override
 	public void recordOrder(O order) {
+//		System.out.println("Do we get here at all");
 		backing.offer(world.createTickEvent(order));
+//		System.out.println(backing.size());
 	}
 
 	@Override
 	public void cancelOrder(O order) {
+		System.out.println("The size of the queue is " + backing.size());
 		TickEvent<O> toRemove = null;
 		for (TickEvent<O> tickOrder: backing)
 			if (tickOrder.getEvent() == order){
@@ -35,6 +39,7 @@ public class DefaultOrderBook<O extends Order & Comparable<O>> implements OrderB
 				break;
 			}
 		if (toRemove != null) backing.remove(toRemove);
+		System.out.println(backing);
 	}
 
 	@Override

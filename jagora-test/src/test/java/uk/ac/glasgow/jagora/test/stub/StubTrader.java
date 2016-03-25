@@ -11,6 +11,7 @@ import java.util.Set;
 import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
+import uk.ac.glasgow.jagora.Tradable;
 import uk.ac.glasgow.jagora.Trade;
 import uk.ac.glasgow.jagora.TradeException;
 import uk.ac.glasgow.jagora.Trader;
@@ -35,7 +36,7 @@ public class StubTrader implements Trader {
 	}
 
 	@Override
-	public void speak(StockExchange stockExchange) {
+	public void speak(Tradable stockExchange) {
 		// Does nothing.
 	}
 

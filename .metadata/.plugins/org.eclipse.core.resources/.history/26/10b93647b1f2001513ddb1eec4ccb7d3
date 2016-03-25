@@ -1,0 +1,50 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.BuyOrder;
+import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import static org.junit.Assert.assertEquals;
+
+@Ignore
+public class DecoratorDesignPatternTest {
+	
+	protected StubObservingTrader trader;
+	protected StockExchange theStockExchange;
+	protected SellOrder sellOrder1;
+	protected SellOrder sellOrder2;
+	protected BuyOrder buyOrder1;
+	protected BuyOrder buyOrder2;
+	
+	@Test
+	public void testPlaceBuyAndSellOrder(){
+		trader.subscriber.placeBuyOrder(buyOrder1);
+		trader.subscriber.placeBuyOrder(buyOrder2);
+		trader.subscriber.placeSellOrder(sellOrder1);
+		trader.subscriber.placeSellOrder(sellOrder2);
+		assertEquals(2.5, trader.subscriber.getBestBid(lemons), 0.0);
+		assertEquals(0.2, trader.subscriber.getBestOffer(lemons), 0.0);
+	}
+	
+	@Test
+	public void testCancelBuyAndSellOrder(){
+		trader.subscriber.cancelBuyOrder(buyOrder1);
+		
+		trader.subscriber.cancelSellOrder(sellOrder1);
+		System.out.println("Do we get here nigga");
+		assertEquals(1.0, trader.subscriber.getBestBid(lemons), 0.0);
+		assertEquals(0.5, trader.subscriber.getBestOffer(lemons), 0.0);
+	}
+	
+}
+
+
+
+
+

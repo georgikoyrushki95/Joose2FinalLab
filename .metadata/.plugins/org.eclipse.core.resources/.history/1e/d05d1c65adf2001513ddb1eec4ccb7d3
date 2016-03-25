@@ -1,0 +1,7 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+
+public class DecoratorDesignPatternTest {
+
+}

@@ -13,6 +13,7 @@ import org.junit.Test;
 import uk.ac.glasgow.jagora.BuyOrder;
 import uk.ac.glasgow.jagora.SellOrder;
 import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.Tradable;
 import uk.ac.glasgow.jagora.Trader;
 import uk.ac.glasgow.jagora.test.StockExchangeTest;
 import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
