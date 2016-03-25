@@ -39,7 +39,7 @@ public class DefaultTrader extends AbstractTrader {
 	// he is eligible to receive updates )
 	@Override
 	public void update(List<TickEvent<Trade>> tradeHistory) {
-		// TODO Auto-generated method stub
+		// I am not registered
 		
 	}
 }

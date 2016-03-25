@@ -1,0 +1,21 @@
+package uk.ac.glasgow.jagora.impl;
+
+public class TraderBuilder {
+	
+	//the type of trader we would like to build
+	private String type;
+	
+	/* A list of all possible attributes any trader can have.
+	 * Note: It may be the case that a given type of trader may not need
+	 * all of them */
+	
+	//Specify what kind of trader we would like to build
+	public void requestTrader(String type){
+		this.type = type;
+	}
+	
+	/* The following list of functions set the particular attributes 
+	 * for the trader that is going to be built. We will trust the
+	 * engine for driving the Stock Exchange to build the proper attributes */
+	
+}

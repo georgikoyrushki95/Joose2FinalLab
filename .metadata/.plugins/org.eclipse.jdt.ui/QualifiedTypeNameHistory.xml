@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.impl.DefaultStockExchange"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.impl.DefaultWorld"/>
+<fullyQualifiedTypeName name="java.util.Observable"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.ObservingTrader"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.Trade"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.test.StockExchangeTest"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.test.ObserverDesignPatternTest"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.Trader"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.Tradable"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.test.TraderTest"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.test.DecoratorDesignPatternTest"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.test.stub.StubObservingTrader"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.StockExchange"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.SellOrder"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.test.BuyOrderTest"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.BuyOrder"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.impl.LimitBuyOrder"/>
+<fullyQualifiedTypeName name="uk.ac.glasgow.jagora.Stock"/>
+</qualifiedTypeNameHistroy>
