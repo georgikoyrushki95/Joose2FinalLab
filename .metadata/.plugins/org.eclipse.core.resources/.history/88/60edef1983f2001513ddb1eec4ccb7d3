@@ -1,0 +1,15 @@
+package uk.ac.glasgow.jagora;
+
+import java.util.List;
+
+public interface ObservingTrader {
+	
+	/***
+	 * 
+	 * @param tradeHistory
+	 * 
+	 * @logic Whenever an Observer actually registers to get updates, he/she will get 
+	 */
+	public void update(List<TickEvent<Trade>> tradeHistory);
+	
+}

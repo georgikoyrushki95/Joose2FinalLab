@@ -1,0 +1,60 @@
+package uk.ac.glasgow.jagora.test;
+import static org.junit.Assert.assertEquals;
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.BuyOrder;
+import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.test.StockExchangeTest;
+import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
+
+
+public class ObserverDesignPatternTest {
+	
+	protected StockExchange stockExchange;
+	protected List<BuyOrder> buyOrders;
+	protected List<SellOrder> sellOrders;
+	protected StubObservingTrader observingTrader;
+	
+	@Test
+	public void testDoClearing() {
+		placeStandardOrdersAndClear();
+
+		//now after the clearing is done, check if the observingTrader has been notifies of changes
+		System.out.println(observingTrader.tradeHistory.size());
+		assertEquals(1, observingTrader.tradeHistory.size());
+	}
+	
+	//Helper methods for the test case
+	private void placeStandardOrdersAndClear() {
+		placeSellOrders (sellOrders);
+		placeBuyOrders (buyOrders);
+		stockExchange.doClearing();
+	}
+	
+	private void placeBuyOrders(List<BuyOrder> buyOrders) {
+		
+//		System.out.println(buyOrders);
+		for (BuyOrder buyOrder : buyOrders){
+
+			stockExchange.placeBuyOrder(buyOrder);
+		}
+		
+	}
+	
+	private void placeSellOrders(List<SellOrder> buyOrders) {
+		
+		
+		for (SellOrder buyOrder : buyOrders){
+			System.out.println("Do we come here at all");
+			stockExchange.placeSellOrder(buyOrder);
+		}
+	}
+
+	
+}

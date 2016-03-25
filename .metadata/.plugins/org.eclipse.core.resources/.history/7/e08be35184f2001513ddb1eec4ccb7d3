@@ -1,0 +1,9 @@
+package uk.ac.glasgow.jagora;
+
+import java.util.List;
+
+public interface ObservingTrader {
+	
+
+	
+}

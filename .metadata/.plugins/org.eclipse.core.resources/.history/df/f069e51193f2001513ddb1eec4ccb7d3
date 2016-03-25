@@ -1,0 +1,68 @@
+package uk.ac.glasgow.jagora.test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import org.junit.Ignore;
+
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.BuyOrder;
+import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.test.StockExchangeTest;
+import uk.ac.glasgow.jagora.test.stub.StubObservingTrader;
+
+
+
+@Ignore
+public class ObserverDesignPatternTest {
+	
+	protected StockExchange stockExchange;
+	protected List<BuyOrder> buyOrders;
+	protected List<SellOrder> sellOrders;
+	protected StubObservingTrader observingTrader;
+	
+	@Test
+	public void testDoClearing() {
+		placeStandardOrdersAndClear();
+		
+		//now after the clearing is done, check if the observingTrader has been notifies of changes
+		/*
+		 * if you carefully apply the clearing algorithm to all the buy/sell orders I have added
+		 * you will notice that there are 4 buy orders and 5 sell orders. All the 4 buy orders will get filled
+		 * and only one sell order will remain. This means that 4 successful trades would have taken place, as
+		 * the result confirms
+		 */
+		assertEquals(4, observingTrader.tradeHistory.size());
+		
+		//another test to see if the tradeHistory the observing trader received as a notification
+		//is the same as the one within the stock exchange
+		assertTrue(CollectionUt)
+		assertEqquals(stockExchange.getTradeHistory(lemons), observingTrader.tradeHistory);
+	}
+	
+	//Helper methods for the test case
+	private void placeStandardOrdersAndClear() {
+		placeSellOrders (sellOrders);
+		placeBuyOrders (buyOrders);
+		stockExchange.doClearing();
+	}
+	
+	private void placeBuyOrders(List<BuyOrder> buyOrders) {
+		for (BuyOrder buyOrder : buyOrders){
+			stockExchange.placeBuyOrder(buyOrder);
+		}
+	}
+	
+	private void placeSellOrders(List<SellOrder> buyOrders) {
+		for (SellOrder buyOrder : buyOrders){
+			stockExchange.placeSellOrder(buyOrder);
+		}
+	}
+	
+}

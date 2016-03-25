@@ -1,0 +1,16 @@
+package uk.ac.glasgow.jagora.test;
+import java.util.List;
+
+import uk.ac.glasgow.jagora.BuyOrder;
+import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.test.StockExchangeTest;
+
+
+public class ObserverDesignPatternTest {
+	
+	protected StockExchange stockExchange;
+	protected List<BuyOrder> buyOrders;
+	protected List<SellOrder> sellOrders;
+	
+}

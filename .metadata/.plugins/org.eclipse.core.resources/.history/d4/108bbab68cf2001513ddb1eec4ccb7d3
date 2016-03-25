@@ -1,0 +1,46 @@
+package uk.ac.glasgow.jagora.test;
+import static org.junit.Assert.assertEquals;
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.BuyOrder;
+import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.StockExchange;
+import uk.ac.glasgow.jagora.test.StockExchangeTest;
+
+
+public class ObserverDesignPatternTest {
+	
+	protected StockExchange stockExchange;
+	protected List<BuyOrder> buyOrders;
+	protected List<SellOrder> sellOrders;
+	protected Trader observingTrader;
+	
+	@Test
+	public void testDoClearing() {
+		placeStandardOrdersAndClear();
+		
+	}
+	
+	//Helper methods for the test case
+	private void placeStandardOrdersAndClear() {
+		placeSellOrders (sellOrders);
+		placeBuyOrders (buyOrders);
+		stockExchange.doClearing();
+	}
+	
+	private void placeBuyOrders(List<BuyOrder> buyOrders) {
+		for (BuyOrder buyOrder : buyOrders)
+			stockExchange.placeBuyOrder(buyOrder);
+	}
+	
+	private void placeSellOrders(List<SellOrder> buyOrders) {
+		for (SellOrder buyOrder : buyOrders)
+			stockExchange.placeSellOrder(buyOrder);
+	}
+
+	
+}

@@ -1,0 +1,10 @@
+package uk.ac.glasgow.jagora;
+
+
+public interface Subject {
+	
+	public void registerObserver(ObservingTrader o);
+	public void removeObserver(ObservingTrader o);
+	public void notifyObservers();
+	
+}
