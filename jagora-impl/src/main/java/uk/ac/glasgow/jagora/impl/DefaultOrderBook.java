@@ -31,7 +31,7 @@ public class DefaultOrderBook<O extends Order & Comparable<O>> implements OrderB
 
 	@Override
 	public void cancelOrder(O order) {
-		System.out.println("The size of the queue is " + backing.size());
+//		System.out.println("The size of the queue is " + backing.size());
 		TickEvent<O> toRemove = null;
 		for (TickEvent<O> tickOrder: backing)
 			if (tickOrder.getEvent() == order){
@@ -39,7 +39,7 @@ public class DefaultOrderBook<O extends Order & Comparable<O>> implements OrderB
 				break;
 			}
 		if (toRemove != null) backing.remove(toRemove);
-		System.out.println(backing);
+//		System.out.println(backing);
 	}
 
 	@Override

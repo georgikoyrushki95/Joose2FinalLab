@@ -1,0 +1,26 @@
+package uk.ac.glasgow.jagora.test.impl;
+
+import org.junit.Before;
+
+import uk.ac.glasgow.jagora.impl.DefaultTrader;
+import uk.ac.glasgow.jagora.impl.RandomTrader;
+import uk.ac.glasgow.jagora.impl.TraderBuilder;
+import uk.ac.glasgow.jagora.test.BuilderPatternTest;
+
+public class ConcreteBuilderPattern extends BuilderPatternTest{
+	
+	@Before
+	public void setup(){
+		TraderBuilder theBuilder = new TraderBuilder();
+		//create new traders in the old-fashioned way using constructors
+		defTrader1 = new DefaultTrader(name, cash, stock, quantity);
+		randTrader1 = new RandomTrader(name, cash, stock, initialQuantity, maxTradeQuantity, priceRange, random);
+		
+		//now create the traders using the builder
+		theBuilder.requestTrader("default");
+		defTrader2 = theBuilder.setName(name)
+				.setCash(cash)
+				.set
+	}
+	
+}

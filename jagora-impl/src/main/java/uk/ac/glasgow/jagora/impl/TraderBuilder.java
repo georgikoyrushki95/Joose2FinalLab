@@ -5,7 +5,6 @@ import java.util.Random;
 
 import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.Trader;
-
 public class TraderBuilder {
 	
 	//the type of trader we would like to build
@@ -20,12 +19,13 @@ public class TraderBuilder {
 	 * to worry about the changes, it will simply have to apply the RECIPE for the new
 	 * type of trader */
 	
+	private Integer initialQuantity;
 	private String name;
 	private Double cash;
 	private Map<Stock,Integer> inventory;
 	private Random random;
 	private double priceRange;
-	private Integer maxQuantity;
+	private Integer maxTradeQuantity;
 	private Stock stock;
 	private Double lastKnownBestOffer;
 	private Double lastKnownBestBid;
@@ -64,7 +64,7 @@ public class TraderBuilder {
 	}
 	
 	public TraderBuilder setMaxQuantity(Integer maxQuantity){
-		this.maxQuantity = maxQuantity;
+		this.maxTradeQuantity = maxQuantity;
 		return this;
 	}
 	
@@ -83,15 +83,24 @@ public class TraderBuilder {
 		return this;
 	}
 	
+	public TraderBuilder setInitialQuantity(Integer initialQuantity){
+		this.initialQuantity = initialQuantity;
+		return this;
+	}
+	
 	/* In the end, a method for building the required object. */
 	public Trader build(){
 		//The error case. In the checkups should be much more complex, however.
-		if(type==null){
+		if(type == null){
 			return null;
-		} 
-		if(type == "default"){
-			return new DefaultTrader(name, cash, stock, quantity)
 		}
+		if(type .equals("default")){
+			return new DefaultTrader(name, cash, stock, initialQuantity);
+		}
+		if(type.equals("random")){
+			return new RandomTrader(name, cash, stock, initialQuantity, maxTradeQuantity, priceRange, random);
+		}
+		return null;
 	}
 }
 

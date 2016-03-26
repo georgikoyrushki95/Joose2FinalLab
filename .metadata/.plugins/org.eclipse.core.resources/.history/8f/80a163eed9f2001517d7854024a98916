@@ -1,0 +1,134 @@
+package uk.ac.glasgow.jagora.impl;
+
+import java.util.Map;
+import java.util.Random;
+
+import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.Trader;
+
+public class TraderBuilder {
+	
+	//the type of trader we would like to build
+	private String type;
+	
+	/* A list of all possible attributes any trader can have.
+	 * Note: It may be the case that a given type of trader may not need
+	 * all of them.
+	 * Also: The list may not be complete -> if a new type of trader is created
+	 * the code for the class will be adjusted. The most important thing is that
+	 * the one who will be using the TradeBuilder class (The engine) will not have
+	 * to worry about the changes, it will simply have to apply the RECIPE for the new
+	 * type of trader */
+	
+	private Integer initialQuanitity;
+	private String name;
+	private Double cash;
+	private Map<Stock,Integer> inventory;
+	private Random random;
+	private double priceRange;
+	private Integer maxQuantity;
+	private Stock stock;
+	private Double lastKnownBestOffer;
+	private Double lastKnownBestBid;
+	
+	//Specify what kind of trader we would like to build
+	public void requestTrader(String type){
+		this.type = type;
+	}
+	
+	/* The following list of functions set the particular attributes 
+	 * for the trader that is going to be built. We will trust the
+	 * engine for driving the Stock Exchange to build the proper attributes */
+	public TraderBuilder setName(String name){
+		this.name = name;
+		return this;
+	}
+	
+	public TraderBuilder setCash(Double cash){
+		this.cash = cash;
+		return this;
+	}
+	
+	public TraderBuilder setInventory(Map<Stock, Integer> inventory){
+		this.inventory = inventory;
+		return this;
+	}
+	
+	public TraderBuilder setRandom(Random random){
+		this.random = random;
+		return this;
+	}
+	
+	public TraderBuilder setPriceRange(double priceRange){
+		this.priceRange = priceRange;
+		return this;
+	}
+	
+	public TraderBuilder setMaxQuantity(Integer maxQuantity){
+		this.maxQuantity = maxQuantity;
+		return this;
+	}
+	
+	public TraderBuilder setStock(Stock stock){
+		this.stock = stock;
+		return this;
+	}
+	
+	public TraderBuilder setLastKnownBestOffer(double lastKnownBestOffer){
+		this.lastKnownBestOffer = lastKnownBestOffer;
+		return this;
+	}
+	
+	public TraderBuilder setLastKnownBestBid(double lastKnownBestBid){
+		this.lastKnownBestBid = lastKnownBestBid;
+		return this;
+	}
+	
+	/* In the end, a method for building the required object. */
+	public Trader build(){
+		//The error case. In the checkups should be much more complex, however.
+		if(type==null){
+			return null;
+		} 
+		if(type == "default"){
+			return new DefaultTrader(name, cash, stock, 5);
+		}
+		return null;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

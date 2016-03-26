@@ -1,0 +1,16 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+
+import uk.ac.glasgow.jagora.impl.DefaultTrader;
+import uk.ac.glasgow.jagora.impl.RandomTrader;
+
+@Ignore
+public class BuilderPatternTest {
+	
+	protected RandomTrader randTrader1;
+	protected RandomTrader randTrader2;
+	protected DefaultTrader defTrader1;
+	protected DefaultTrader defTrader2;
+		
+}

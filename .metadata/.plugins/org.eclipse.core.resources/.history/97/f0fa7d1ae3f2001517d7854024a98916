@@ -1,0 +1,87 @@
+package uk.ac.glasgow.jagora.test.stub;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.TickEvent;
+import uk.ac.glasgow.jagora.Tradable;
+import uk.ac.glasgow.jagora.Trade;
+import uk.ac.glasgow.jagora.TradeException;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.impl.AbstractTrader;
+
+public class DefaultTraderStub implements Trader{
+	
+	public String name;
+	public Double cash;	
+	public Stock stock;
+	public Integer initialQuantity;
+	
+	public DefaultTraderStub(String name, Double cash, Stock stock, Integer initialQuantity) {
+		this.name = name;
+		this.cash = cash;
+		this.stock = stock;
+		this.initialQuantity = initialQuantity;
+	}
+
+	@Override
+	public void speak(Tradable stockExchange) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(List<TickEvent<Trade>> tradeHistory) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public boolean equals(Object another){
+		if(another instanceof DefaultTraderStub){
+			DefaultTraderStub theOther = (DefaultTraderStub) another;
+			return theOther.initialQuantity == initialQuantity && theOther.cash == cash &&
+					theOther.stock.getName().equals(stock.getName()) && theOther.name.equals(name);
+		}
+		return false;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Double getCash() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void sellStock(Stock stock, Integer quantity, Double price) throws TradeException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buyStock(Stock stock, Integer quantity, Double price) throws TradeException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Integer getInventoryHolding(Stock stock) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Stock> getTradingStocks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

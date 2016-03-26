@@ -1,0 +1,10 @@
+package uk.ac.glasgow.jagora.test.stub;
+
+public class ConcreteBuilderPattern extends BuilderPatternTest{
+	
+	@Before
+	public void setup(){
+		
+	}
+	
+}

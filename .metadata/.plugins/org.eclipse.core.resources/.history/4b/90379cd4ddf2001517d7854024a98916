@@ -1,0 +1,21 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.impl.DefaultTrader;
+import uk.ac.glasgow.jagora.impl.RandomTrader;
+
+@Ignore
+public class BuilderPatternTest {
+	
+	protected Trader randTrader1;
+	protected Trader randTrader2;
+	protected Trader defTrader1;
+	protected Trader defTrader2;
+	
+	//attributes 
+	String name = "Georgi";
+	Double cash = 24.0;
+		
+}

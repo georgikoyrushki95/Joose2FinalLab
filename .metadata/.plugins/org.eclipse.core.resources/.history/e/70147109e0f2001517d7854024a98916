@@ -1,0 +1,45 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.impl.DefaultTrader;
+import uk.ac.glasgow.jagora.impl.RandomTrader;
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Random;
+
+@Ignore
+public class BuilderPatternTest {
+	
+	protected Trader randTrader1;
+	protected Trader randTrader2;
+	protected Trader defTrader1;
+	protected Trader defTrader2;
+	
+	//dummy attributes a trader may have
+	protected String name = "Georgi";
+	protected Double cash = 24.0;
+	protected Stock stock = lemons;
+	protected Integer quantity = 2;
+	protected Integer initialQuantity = 2;
+	protected Integer maxTradeQuantity = 10;
+	protected Random random;
+	protected Double priceRange = 10.0;
+	
+	/* will simply check if the two random traders are equal (we have given them same parameters)
+	 * and if the two default traders are equal */
+	@Test
+	public void testBuilderPattern(){
+		System.out.println(randTrader1);
+		System.out.println(randTrader2);
+		System.out.println(defTrader1.equals(defTrader2));
+		assertEquals(randTrader1, randTrader2);
+		assertEquals(defTrader1,  defTrader2);
+	}
+		
+}

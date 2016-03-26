@@ -1,0 +1,51 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.impl.DefaultTrader;
+import uk.ac.glasgow.jagora.impl.RandomTrader;
+import uk.ac.glasgow.jagora.test.stub.StubStockExchange;
+
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Random;
+
+@Ignore
+public class BuilderPatternTest{
+	
+	protected Trader randTrader;
+	protected Trader defTrader;
+	
+	@Test
+	public void testSpeak (){
+		StubStockExchange stockExchange = new StubStockExchange();
+		
+		for (int i = 0 ; i < 20 ; i ++){
+			randTrader.speak(stockExchange);
+		}
+		
+		Double averageBuyPrice =
+			stockExchange.buyOrders
+				.stream()
+				.mapToDouble(buyOrder->buyOrder.getPrice())
+				.average()
+				.getAsDouble();
+		
+		assertEquals(5.0, averageBuyPrice, 1.0);
+		
+		Double averageSellPrice =
+			stockExchange.sellOrders
+				.stream()
+				.mapToDouble(buyOrder->buyOrder.getPrice())
+				.average()
+				.getAsDouble();
+
+		assertEquals(5.0, averageSellPrice, 1.0);
+	}
+			
+}

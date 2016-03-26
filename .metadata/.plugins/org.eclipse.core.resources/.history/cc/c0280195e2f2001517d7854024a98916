@@ -1,0 +1,45 @@
+package uk.ac.glasgow.jagora.test.stub;
+
+import java.util.List;
+import java.util.Map;
+
+import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.TickEvent;
+import uk.ac.glasgow.jagora.Tradable;
+import uk.ac.glasgow.jagora.Trade;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.impl.AbstractTrader;
+
+public class DefaultTraderStub implements Trader{
+	
+	public String name;
+	public Double cash;	
+	
+	public DefaultTraderStub(String name, Double cash, Stock stock, Integer initialQuantity) {
+		this.name = name;
+		this.cash = cash;
+		this.stock = stock;
+		this.initialQuantity = initialQuantity;
+	}
+
+	@Override
+	public void speak(Tradable stockExchange) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(List<TickEvent<Trade>> tradeHistory) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public boolean equals(Object another){
+		if(another instanceof DefaultTraderStub){
+			return another
+		}
+		return false
+	}
+	
+}

@@ -1,0 +1,31 @@
+package uk.ac.glasgow.jagora.test;
+
+import org.junit.Ignore;
+
+import uk.ac.glasgow.jagora.Stock;
+import uk.ac.glasgow.jagora.Trader;
+import uk.ac.glasgow.jagora.impl.DefaultTrader;
+import uk.ac.glasgow.jagora.impl.RandomTrader;
+import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
+
+import java.util.Random;
+
+@Ignore
+public class BuilderPatternTest {
+	
+	protected Trader randTrader1;
+	protected Trader randTrader2;
+	protected Trader defTrader1;
+	protected Trader defTrader2;
+	
+	//dummy attributes a trader may have
+	protected String name = "Georgi";
+	protected Double cash = 24.0;
+	protected Stock stock = lemons;
+	protected Integer quantity = 2;
+	protected Integer initialQuantity = 2;
+	protected Integer maxTradeQuantity = 10;
+	protected Random random;
+	
+		
+}
