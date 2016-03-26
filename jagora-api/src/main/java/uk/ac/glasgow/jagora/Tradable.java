@@ -1,5 +1,10 @@
 package uk.ac.glasgow.jagora;
-
+/***
+ * 
+ * @author georgi
+ * Allows restricted access to a StockExchange while also providing the abstract methods
+ * for the Observer design pattern
+ */
 public interface Tradable {
 	/**
 	 * Places a buy order on the stock exchange. If this is the first order for
@@ -39,9 +44,6 @@ public interface Tradable {
 	 *         specified stock.
 	 */
 	public Double getBestBid(Stock stock);
-	
-	
-
 	
 	//methods needed to implement the Observer design pattern
 	public void registerObserver(Trader o);

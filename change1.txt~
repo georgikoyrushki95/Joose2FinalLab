@@ -1,0 +1,12 @@
+PLEASE CHECK THE ObserverDesignPatternTest.java in jagora.test and
+ConcreteObserverTest.java in jagora.test.impl. THOSE ARE MY TEST CASES FOR THE DESIGN PATTERN
+
+Reason:
+The first change was made because the system was faulty in that it not take into account the fact that some traders may need to be exposed to the trading history of a stock exchange they participate in.
+
+Solution: 
+I used the Observer pattern to solve the issue. The subject in my solution is the stock exchange. Every time it finishes a clearing process, it notifies of the new trade history the traders that have "subscribed" to receive that information. The design pattern solves the problem in a particularly efficient way, as there is only one source of information which is distributed to all the subscribers that need it at once. I have also made sure that the Lists I pass to subscribers are unmodifiable because we don't want it to change externally.
+
+Trade-offs:
+While it solved the problem I described above, when I moved on to the further tasks, I noticed that I would also need to use an interface for the stock exchange while implementing the Decorator pattern. The issue was that I at times the StockExchange might be used both as an Observable and as a Restricted version of itself (we don't want a trader to be able to use methods that might endanger the invariance of the Stock Exchange). This is why, I created a new interface- called Tradable. It is a composition of both Decorator pattern (only the methods a trader can access are in it) and Observer pattern (methods for registering/removing and notifying traders). Now with a single interface, it wouldn't be a problem to satisfy both the constraints.
+

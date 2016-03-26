@@ -1,0 +1,7 @@
+PLEASE CHECK DecoratorDesignPatternTest.java in jagora.test AND ConcreteDecoratorTest.java in jagora.test.impl WHERE I HAVE TESTED THE MY IMPLEMENTATION OF THE DECORATOR DESIGN PATTERN.
+
+Reason:
+When a trader speaks to a stock exchange, he has access to all of its methods, including doClearing. This is something we don't want because it may ruin the invariance of the StockExchange class. However, we still want the trader to be able to access methods with which he can place/cancel orders and get information about best orders.
+
+Solution:
+I used the Decorator pattern to solve this issue. I compose the Trader with a restricted version of the StockExchange (restricted by the use of the Tradable interface). The Tradable interface allows traders to have access only to methods that are unharmful to the StockExchange. A concrete implementation of the StockExchange interface, on the other hand, is fully functional. Although in my tests for the decorator pattern, I have tried to show that it does not stop the system from functioning correctly, probably its most important test is to try to access dangerous methods through it (like doClearing for example).

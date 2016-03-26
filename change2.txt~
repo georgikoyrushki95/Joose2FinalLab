@@ -1,0 +1,14 @@
+PLEASE CHECK ConcreteBuilderPattern.java in jagora.test.impl AND BuilderPatternTest.java in jagora.test WHERE MY TESTS FOR THE BUILDER DESIGN PATTERN ARE.
+
+Reason: 
+The implementatiosn of Default/Random traders have very complex constructors. It would be much better if a more concise way of creating trader objects was introduced, without using the keyword "new". This is so because we would like to hide the details for creating objects from the Engine that will run the Stock Exchange system. We only want it to know the recipe, and the rest should be hidden from it.
+
+Solution:
+I used the Builder pattern. It is the best solution for complex constructors that might take different number of arguments down in the Inheritance Hierarchy. What the TraderBuilder does is simply: takes the type of trader we would like to create, and creates it using the constructor (hiding the complexity from the users of the system). It counts on the users to supply the correct recipe to it (for example, if we create a random trader we might not specify the Random object, which will cause the trader to malfunction).
+
+Trade-offs:
+The Builder pattern mimmicks default arguments whcih are supported in other programming languages. It creates a new object (the builder) , which then creates a new object (the trader). In other words, we create a wrapper class that does something we can do directly with the new keyword. Thus, performance is deteriorated slightly. On the other hand, 
+the creation of traders becomes much more intuitive and safe.
+
+Side:
+I did not create the functionality which allows for the passing of more than one pair of Stock,Quantity when creating a new Trader. It could be done quite easily with the variable number of arguments feature java supports. In the end of the constructor we can do something like Object...StockQuantityPair, which will yield an array of objects which may then be downcasted to Stock and Integer in turn.

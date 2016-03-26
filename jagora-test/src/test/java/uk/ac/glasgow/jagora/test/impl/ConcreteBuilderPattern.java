@@ -9,7 +9,6 @@ import uk.ac.glasgow.jagora.impl.DefaultTrader;
 import uk.ac.glasgow.jagora.impl.RandomTrader;
 import uk.ac.glasgow.jagora.impl.TraderBuilder;
 import uk.ac.glasgow.jagora.test.BuilderPatternTest;
-//import uk.ac.glasgow.jagora.test.stub.DefaultTraderStub;
 
 public class ConcreteBuilderPattern extends BuilderPatternTest{
 	

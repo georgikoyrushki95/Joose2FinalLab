@@ -25,15 +25,12 @@ public class ConcreteObserverTest extends ObserverDesignPatternTest{
 		
 		stockExchange = new DefaultStockExchange(new DefaultWorld());
 		observingTrader = new StubObservingTrader(stockExchange, "gorgi boy");
-//		System.out.println("I am not null bitch");
 		buyOrders = 
 			unmodifiableList(asList(new BuyOrder[]{
 				new LimitBuyOrder(buyer, lemons, 1, 2.5),
 				new LimitBuyOrder(buyer, lemons, 1, 1.0),
 				new LimitBuyOrder(buyer, lemons, 1, 0.5),
 				new LimitBuyOrder(buyer, lemons, 1, 0.5)}));
-		
-//		System.out.println(buyOrders);
 		sellOrders = 
 			unmodifiableList(asList(new SellOrder[]{
 				new LimitSellOrder(seller, lemons, 2, 0.2),

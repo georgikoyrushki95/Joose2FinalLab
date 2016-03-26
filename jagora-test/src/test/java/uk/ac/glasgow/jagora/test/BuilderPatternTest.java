@@ -17,7 +17,12 @@ import static org.junit.Assert.assertEquals;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-
+/***
+ * 
+ * @author georgi
+ *	Reusing the code from TraderTest and RandomTraderTest to test the functionality
+ *	of the builder pattern
+ */
 @Ignore
 public class BuilderPatternTest{
 	
